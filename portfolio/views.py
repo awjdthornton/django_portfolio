@@ -1,5 +1,6 @@
 import requests
 from django.shortcuts import render, redirect
+import os
 
 # Create your views here.
 
@@ -36,9 +37,11 @@ def send_email(request):
     message = request.POST['message']
     
     #send email using mailgun API
+    mailgun_api_key = os.environ["MAILGUN_API_KEY"]
+    
     requests.post(
         "https://api.mailgun.net/v3/sandboxb364b46bb57a4f7bb415814c33300234.mailgun.org/messages",
-        auth=("api", "863844d01786527a48f7d716f56820d0"),
+        auth=("api", mailgun_api_key),
         data={"from": name + "<" + email + ">",
             "to": "Andrew Thornton <awjdthornton@gmail.com>",
             "subject": "Message from "+name,
