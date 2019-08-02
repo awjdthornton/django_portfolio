@@ -9,7 +9,6 @@ def bio(request):
     
     context = {
         'title': 'Bio',
-        'bio_active': 'active',
         'bground': 'bg_bio',
     }
     return render(request, 'bio.html', context)
@@ -19,7 +18,6 @@ def ideas(request):
     
     context = {
         'title': 'Ideas',
-        'ideas_active': 'active',
         'bground': 'bg_product_ideas',
     }
     return render(request, 'ideas.html', context)
@@ -29,7 +27,6 @@ def blog(request):
     
     context = {
         'title': 'Blog',
-        'blog_active': 'active',
         'bground': 'bg_blog',
     }
     return render(request, 'blog.html', context)
@@ -56,4 +53,7 @@ def send_email(request):
     print('send email mailgun post status_code =>',r.status_code)
     
     return redirect ("/")
+
+
+
 
